@@ -15,20 +15,21 @@ fn main() -> io::Result<()> {
             Ok(num) => num,
             Err(_) => {
                 println!("Por favor, digite um número válido!");
-                return Ok(());
+                continue;
             }
         };
 
         println!("Você digitou: {}", guess);
 
-        if guess < numero {
+        if guess == numero {
+            println!("Parabéns! Você acertou!");
+            break; 
+        } else if guess < numero {
             println!("Muito baixo! Tente novamente");
-        } else if guess > numero {
-            println!("Muito alto! Tente novamente");
         } else {
-            println!("Parabéns! Você acertou");
-            break;
+            println!("Muito alto! Tente novamente");
         }
     }   
+
     Ok(())
 }
